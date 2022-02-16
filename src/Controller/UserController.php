@@ -8,7 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class GithubController extends AbstractController
+#[Route('/user')]
+class UserController extends AbstractController
 {
     const USER_REPOS        = '/user/repos';
     const AUTH_BEARER_KEY   = 'auth_bearer';
@@ -16,7 +17,7 @@ class GithubController extends AbstractController
     public function __construct(protected HttpClientInterface $client)
     { }
 
-    #[Route(self::USER_REPOS, name: 'user.repos')]
+    #[Route('/repos', name: 'user.repos')]
     public function userRepos(Request $request): Response
     {
         if (!$request->headers->has(self::AUTH_BEARER_KEY)) {
