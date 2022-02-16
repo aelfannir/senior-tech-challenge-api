@@ -18,7 +18,7 @@ class UserController extends AbstractController
     { }
 
     #[Route('/repos', name: 'repos')]
-    public function userRepos(Request $request): Response
+    public function repo(Request $request): Response
     {
         if (!$request->headers->has(self::AUTH_BEARER_KEY)) {
             return new Response(status: Response::HTTP_UNAUTHORIZED);
