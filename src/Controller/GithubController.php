@@ -17,7 +17,7 @@ class GithubController extends AbstractController
     { }
 
     #[Route(self::USER_REPOS, name: 'user.repos')]
-    public function index(Request $request): Response
+    public function userRepos(Request $request): Response
     {
         if (!$request->headers->has(self::AUTH_BEARER_KEY)) {
             return new Response(status: Response::HTTP_UNAUTHORIZED);
